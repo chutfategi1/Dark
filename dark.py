@@ -1,3 +1,44 @@
+import subprocess
+import sys
+
+# List of packages to install
+packages = [
+    "telebot",
+    "pyTelegramBotAPI",
+    "requests",
+    "psutil",
+    "pymongo",
+    "aiogram",
+    "aiohttp",
+    "pytz",
+    "telethon",
+    "timedelta",
+    "python-telegram-bot",
+]
+
+# Function to install packages
+def install(package):
+    subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+
+# Install each package
+for package in packages:
+    try:
+        print(f"Installing {package}...")
+        install(package)
+        print(f"{package} installed successfully.\n")
+    except subprocess.CalledProcessError:
+        print(f"Failed to install {package}.\n")
+#
+dark_path = './dark'
+
+# Grant execute permission to the file
+try:
+    os.chmod(dark_path, 0o755)  # 755 grants execute permissions for all users
+    print(f"Execute permission granted for {dark_path}.")
+except Exception as e:
+    print(f"Failed to set execute permission: {e}")
+
+#
 import asyncio
 import random
 import string
